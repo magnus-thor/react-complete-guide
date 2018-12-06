@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import { runInThisContext } from 'vm';
 
 class App extends Component {
   state = {
@@ -23,9 +22,9 @@ class App extends Component {
   nameChangedHandler = (event) => {
     this.setState({
       persons: [
-        { name: 'Max', age: 28 },
-        { name: event.target.value, age: 30 },
-        { name: 'Stephanie', age: 22 }
+        { id: '1', name: 'Max', age: 28 },
+        { id: '2', name: event.target.value, age: 30 },
+        { id: '3', name: 'Stephanie', age: 22 }
       ]
     })
   }
@@ -54,6 +53,7 @@ class App extends Component {
               click={() => this.deletePersonHandler(index)}
               name={person.name}
               age={person.age}
+              key={person.id}
             />
           })}
         </div>
